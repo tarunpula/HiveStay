@@ -1,0 +1,42 @@
+<% layout("/layouts/boilerplate") %>
+  <div class="col-8 offset-2">
+    <h3>Create New Listing</h3>
+    <form action="/listings" method="POST" novalidate class="needs-validation" enctype="multipart/form-data">
+        <div class="mb-3 mt-3">
+            <label for="title" class="from-label">Title</label>
+            <input type="text" name="listing[title]" placeholder="Enter your Title" class="form-control" required/>
+            <div class="valid-feedback">Title Looks Good</div>
+        </div>
+        <div class="mb-3">
+        <label for="description" class="from-label">Description</label>
+        <textarea name="listing[description]" class="form-control" required></textarea>
+        <div class="invalid-feedback">Enter the valid Description</div>
+       </div>
+       <div class="mb-3">
+        <label for="image" class="from-label">Upload image</label>
+        <input type="file" name="listing[image]"class="form-control" required/>
+       </div>
+       <div class="mb-3">
+        <label for="location" class="from-label">Location</label>
+        <input type="text" name="listing[location]" placeholder="enter the location" class="form-control" required/>
+        <div class="invalid-feedback">Enter the valid Location</div>
+       </div>
+       <div class="row">
+        <div class="mb-3 col-md-4">
+            <label for="price" class="from-label">Price</label>
+            <input name="listing[price]" placeholder="enter the price" class="form-control" required/>
+            <div class="invalid-feedback">Enter the valid Price</div>
+           </div>
+           <div class="mb-3 col-md-8">
+            <label for="country" class="from-label">Country</label>
+            <input type="text" name="listing[country]" placeholder="enter the country" class="form-control" required/>
+            <div class="invalid-feedback">Enter the valid Country</div>
+           </div>
+        </div>
+        <button class="btn btn-dark add-btn">
+            Add
+        </button> 
+    </div> 
+  
+</form>
+

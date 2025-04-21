@@ -1,0 +1,25 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="container mt-4">
+    <h2>Listings in <%= city %></h2>
+    <hr>
+    <div class="row">
+        <% if (listings.length === 0) { %>
+            <p>No listings found for "<%= city %>"</p>
+        <% } else { %>
+            <% listings.forEach(listing => { %>
+                <div class="col-md-4 mb-3">
+                    <div class="card listing-card">
+                        <img src="<%= listing.image.url %>" class="card-img-top" alt="Listing Image">
+                        <div class="card-body">
+                            <h5 class="card-title"><%= listing.title %></h5>
+                            <p><b>City:</b> <%= listing.location %></p>
+                            <p><b>Price:</b> ₹<%= listing.price.toLocaleString("en-IN") %></p>
+                            <a href="/listings/<%= listing._id %>" class="btn btn-dark btn-sm">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            <% }) %>
+        <% } %>
+    </div>
+</div>

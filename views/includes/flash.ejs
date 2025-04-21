@@ -1,0 +1,25 @@
+<%if(success && success.length){%>
+<div class="alert alert-success alert-dismissible fade show col-6 offset-3 mt-2" role="alert" id="myAlert" >
+    <%=success%> 
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+    </button>
+
+</div>
+<%}%>
+
+<%if(error && error.length){%>
+    <div class="alert alert-danger alert-dismissible fade show col-6 offset-3 mt-2" role="alert" id="myAlert" >
+        <%=error%>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    
+    </div>
+    <%}%>
+    <script>
+        setTimeout(function(){
+            let alert = document.getElementById("myAlert");
+            if(alert){
+                let alertInstance = bootstrap.Alert.getOrCreateInstance(alert);
+                alertInstance.close();
+            }
+        },3000);
+    </script>
