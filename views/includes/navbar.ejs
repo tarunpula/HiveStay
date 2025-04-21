@@ -33,23 +33,26 @@
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
   }
-  @media (max-width: 767.98px) {
+ /* White background for navbar dropdown menu when open */
+@media (max-width: 767.98px) {
+  /* Smooth transition for navbar */
   .navbar-collapse.collapse {
-    transition: max-height 0.5s ease-out, opacity 0.3s ease-out;
-    max-height: 0;  /* Initially collapsed */
-    opacity: 0;
-    overflow: hidden;  /* Hide content when collapsed */
+    transition: max-height 0.3s ease-out, opacity 0.3s ease-out; 
+    max-height: 0; /* Initially collapsed */
+    opacity: 0;   /* Initially hidden */
+    overflow: hidden; /* Prevent content overflow when collapsed */
   }
 
   .navbar-collapse.collapse.show {
-    max-height: 500px; /* Set this to a suitable value */
-    opacity: 1;
+    max-height: 500px; /* Adjust according to the height of the menu */
+    opacity: 1;        /* Show when expanded */
     background-color: white;
     padding: 1rem;
     border-radius: 0 0 10px 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
 }
+
 
 
 </style>
