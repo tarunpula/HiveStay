@@ -33,8 +33,12 @@
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
   }
-  /* White background for navbar dropdown menu when open */
+/* White background for navbar dropdown menu when open */
 @media (max-width: 767.98px) {
+  .navbar-collapse.collapse {
+    transition: all 0.3s ease-out;  /* Smooth transition for opening/closing */
+  }
+
   .navbar-collapse.collapse.show {
     background-color: white;
     padding: 1rem;
