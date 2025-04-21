@@ -1,75 +1,59 @@
-  <style>
+<style>
+  #filters {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 40px;
+  }
+  .filter {
+    text-align: center;
+    margin: 10px;
+    opacity: 0.7;
+  }
+  .filter:hover {
+    opacity: 1;
+    cursor: pointer;
+  }
+  .btn-search {
+    background-color: #fe424d;
+    color: #fff;
+  }
+  .btn-search:hover {
+    background-color: #fe424d;
+    color: #fff;
+  }
+  .btn-search i {
+    display: inline;
+    margin-right: 10px;
+  }
+  .rotate-laptop {
+    display: inline-block;
+    animation: spin 2s infinite;
+  }
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  /* Transition for background */
+  #navbarNavAltMarkup {
+    transition: background-color 0.3s ease;
+  }
+
+  @media (max-width: 768px) {
     #filters {
-      display: flex;
-      flex-wrap: wrap;
-      margin-left: 40px;
+      margin-left: 0;
+      justify-content: center;
     }
+  }
+</style>
 
-    .filter {
-      text-align: center;
-      margin: 10px;
-      opacity: 0.7;
-    }
 
-    .filter:hover {
-      opacity: 1;
-      cursor: pointer;
-    }
-
-    .btn-search {
-      background-color: #fe424d;
-      color: #fff;
-    }
-
-    .btn-search:hover {
-      background-color: #fe424d;
-      color: #fff;
-    }
-
-    .btn-search i {
-      display: inline;
-      margin-right: 10px;
-    }
-
-    .rotate-laptop {
-      display: inline-block;
-      animation: spin 2s infinite;
-    }
-
-    @keyframes spin {
-      from {
-        transform: rotate(0deg);
-      }
-
-      to {
-        transform: rotate(360deg);
-      }
-    }
-
-    @media (max-width: 768px) {
-      #filters {
-        margin-left: 0;
-        justify-content: center;
-      }
-
-      .search {
-        width: 100%;
-        padding: 0 1rem;
-      }
-
-      .navbar-collapse {
-        padding: 1rem;
-      }
-    }
-  </style>
 
 <nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
   <div class="container-fluid">
     <a class="navbar-brand" href="/listings">
       <i class="fa-regular fa-compass rotate-laptop"></i>
     </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -93,31 +77,29 @@
           </form>
         </div>
       </div>
+
       <div class="navbar-nav ms-auto">
         <a class="nav-link" href="/listings/new">HiveStay Stay as Your Home</a>
-        <%if(!currUser){%>
-        <a class="nav-link" href="/signup"><b>Sign up</b></a>
-        <a class="nav-link" href="/login"><b>Log in</b></a>
-        <%}%>
-        <%if(currUser){%>
-        <a class="nav-link" href="/logout"><b>Log out</b></a>
-        <%}%>
+        <% if (!currUser) { %>
+          <a class="nav-link" href="/signup"><b>Sign up</b></a>
+          <a class="nav-link" href="/login"><b>Log in</b></a>
+        <% } %>
+        <% if (currUser) { %>
+          <a class="nav-link" href="/logout"><b>Log out</b></a>
+        <% } %>
       </div>
     </div>
   </div>
 </nav>
 
-<!-- Bootstrap JS + Event Listener for collapse -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-  const navbarCollapse = document.getElementById('navbarNavAltMarkup');
+  const toggler = document.querySelector('.navbar-toggler');
+  const collapse = document.getElementById('navbarNavAltMarkup');
 
-  navbarCollapse.addEventListener('show.bs.collapse', function () {
-    navbarCollapse.classList.add('bg-white');
-  });
-
-  navbarCollapse.addEventListener('hide.bs.collapse', function () {
-    navbarCollapse.classList.remove('bg-white');
+  toggler.addEventListener('click', () => {
+    setTimeout(() => {
+      collapse.classList.toggle('bg-white', collapse.classList.contains('show'));
+    }, 200);
   });
 </script>
-
