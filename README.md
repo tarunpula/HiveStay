@@ -1,6 +1,5 @@
-# Project Title
+# HiveStay
 
-A brief description of your project. Based on the files, it seems to be a web application for managing listings, reviews, and users, possibly involving maps and image uploads.
 
 ## Features
 
